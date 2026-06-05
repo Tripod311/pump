@@ -1,6 +1,6 @@
 {
   "name": "@tripod311/pump",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Data storage for single page applications",
   "license": "MIT",
   "author": "Tripod ind.tripod@gmail.com",
@@ -10,7 +10,6 @@
     "js",
     "ts"
   ],
-  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
