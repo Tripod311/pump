@@ -5,6 +5,10 @@ export class Pipe<Input=undefined, Output=undefined> {
 	protected children: Record<string, Pipe> = {};
 	protected listeners: PipeListener<Input, Output>[] = [];
 
+	get nested (): string[] {
+		return Object.keys(this.children);
+	}
+
 	addPipe (id: string, child: Pipe) {
 		if (this.children[id] !== undefined) throw new Error(`Pipe ${JSON.stringify(this.fullPath.concat([id]))} already added`);
 
@@ -197,6 +201,10 @@ export class AsyncFunctionPipe<Input=unknown, Output=unknown> extends DataPipe<I
 
 export class Pump {
 	private pipes: Record<string, Pipe> = {};
+
+	get nested (): string[] {
+		return Object.keys(this.pipes);
+	}
 
 	addPipe (id: string, pipe: Pipe) {
 		if (this.pipes[id] !== undefined) throw new Error(`Pipe ${id} already added`);
