@@ -66,7 +66,7 @@ export class StoragePipe<T=unknown> extends Pipe<T,T> {
 
 	trigger () {
 		for (const l of this.listeners) {
-			l(this._data as T, this._data, this._oldData as T, this._oldData);
+			l(this._data as T, this._oldData, this._data as T, this._oldData);
 		}
 
 		for (const id in this.children) {
