@@ -206,7 +206,7 @@ export class Pump {
 		return Object.keys(this.pipes);
 	}
 
-	private parsePath (path: string): string[] {
+	parsePath (path: string): string[] {
 		if (typeof path !== "string") {
 			throw new TypeError("Pipe path must be a string");
 		}
@@ -224,7 +224,7 @@ export class Pump {
 		return parts;
 	}
 
-	private validateId (id: string) {
+	validateId (id: string) {
 		const parts = this.parsePath(id);
 
 		if (parts.length !== 1) {
