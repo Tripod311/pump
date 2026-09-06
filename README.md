@@ -1,6 +1,6 @@
 # Pump
 
-**Pump** is a lightweight zero-dependency application-layer data storage.  
+**Pump** is a lightweight zero-dependency experiment in representing application state, derived values and effects through one addressable data-flow abstraction.
 It provides a minimal set of building blocks for managing global and local state, API calls, and reactive dependencies without unnecessary logic or restrictions.
 
 ---
