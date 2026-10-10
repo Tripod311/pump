@@ -1,3 +1,4 @@
+import { Pump } from "./pump.js"
 import { Pipe, type PipeListener } from "./pipe.js"
 import { StoragePipe } from "./storagePipe.js"
 import { DataPipe } from "./dataPipe.js"
@@ -16,6 +17,7 @@ export type {
 }
 
 export {
+	Pump,
 	Pipe,
 	StoragePipe,
 	DataPipe,
