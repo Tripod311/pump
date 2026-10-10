@@ -1,15 +1,15 @@
 export type PipeListener<Input=unknown, Output=unknown> = (newOutput: Output, oldOutput: Output | null, newInput: Input, oldInput: Input | null) => void;
 
-export class Pipe<Input=undefined, Output=undefined> {
+export class Pipe<Input=unknown, Output=unknown> {
 	protected _fullPath: string[] = [];
-	protected children: Record<string, Pipe> = {};
+	protected children: Record<string, Pipe<any, any>> = {};
 	protected listeners: PipeListener<Input, Output>[] = [];
 
 	get nested (): string[] {
 		return Object.keys(this.children);
 	}
 
-	addPipe (id: string, child: Pipe) {
+	addPipe (id: string, child: Pipe<any, any>) {
 		if (this.children[id] !== undefined) throw new Error(`Pipe ${JSON.stringify(this.fullPath.concat([id]))} already added`);
 
 		this.children[id] = child;
@@ -24,7 +24,7 @@ export class Pipe<Input=undefined, Output=undefined> {
 		delete this.children[id];
 	}
 
-	getPipe (id: string): Pipe | null {
+	getPipe (id: string): Pipe<any, any> | null {
 		return this.children[id] || null;
 	}
 
