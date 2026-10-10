@@ -34,6 +34,10 @@ export class Pipe<Input=undefined, Output=undefined> {
 
 	set fullPath (val: string[]) {
 		this._fullPath = val;
+
+		for (const id in this.children) {
+			this.children[id].fullPath = this._fullPath.slice().concat([id]);
+		}
 	}
 
 	on (listener: PipeListener<Input, Output>, params: any) {
