@@ -35,7 +35,7 @@ export class Pump {
 		}
 	}
 
-	addPipe (id: string, pipe: Pipe) {
+	addPipe (id: string, pipe: Pipe<any, any>) {
 		this.validateId(id);
 
 		if (this.pipes[id] !== undefined) {
